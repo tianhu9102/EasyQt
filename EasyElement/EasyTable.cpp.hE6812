@@ -1,0 +1,69 @@
+#include "EasyTable.h"
+
+EasyTable::EasyTable(QWidget *parent) : QWidget(parent)
+{
+    easyTable = new QTableWidget();
+}
+
+QTableWidget* EasyTable::setEasyInitParams(QStringList headerList){
+
+    easyTable->setColumnCount(headerList.length());
+    easyTable->setHorizontalHeaderLabels(headerList);
+    easyTable->horizontalHeader()->setFixedHeight(30);
+    easyTable->resize(600,350);
+
+    easyTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    easyTable->horizontalHeader()->setStyleSheet("QHeaderView::section {background-color:darkCyan;color: black;padding-left: 4px;border: 1px solid #6c6c6c;}");    //设置表头字体，颜色，模
+    easyTable->horizontalHeader()->setFixedHeight(40);
+    easyTable->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
+
+    QFont fontt("Microsoft YaHei",14,45);
+    QPalette palett;
+    palett.setColor(QPalette,Qt::white);
+    easyTable->horizontalHeader()->setFont(fontt);
+
+    return easyTable;
+}
+
+void EasyTable::setEasyStyleSheet(){
+
+    easyTable->setStyleSheet("QTableWidget::{background:darkGray;};\
+                              QScrollBar:vertical{\
+                                                     height: 20px;\
+                                                     background: transparent;\
+                                                     margin-top: 3px;\
+                                                     margin-bottom: 3px;\}"
+                             );
+
+}
+
+void EasyTable::setEasyDatas(){
+    int rowCount = easyTable->rowCount();
+    easyTable->insertRow(rowCount);
+
+    QTableWidgetItem* item[easyTable->columnCount()];
+    for(int i=0;i<easyTable->columnCount();i++){
+            item[i] = new QTableWidgetItem("SCS");
+            item[i]->setTextAlignment(Qt::AlignCenter);
+            easyTable->setItem(rowCount,i,item[i]);
+    }
+
+}
+
+void EasyTable::setEasyDatasIcons(){
+    int rowCount = easyTable->rowCount();
+    easyTable->insertRow(rowCount);
+
+    QTableWidgetItem* item[easyTable->columnCount()];
+    for(int i=0;i<easyTable->columnCount();i++){
+            item[i] = new QTableWidgetItem(QIcon(":/EasyCommon/icons/icon0/title.png"),"SCS");
+            item[i]->setTextAlignment(Qt::AlignCenter);
+            easyTable->setItem(rowCount,i,item[i]);
+    }
+}
+
+void EasyTable::clearEasyDatas(){
+      for(int i=easyTable->rowCount();i>-1;i--){
+            easyTable->removeRow(i);
+      }
+}
