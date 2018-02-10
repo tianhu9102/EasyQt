@@ -13,43 +13,28 @@
 #include <QDebug>
 
 
-#include "ListWidget.h"
-#include "TreeWidget.h"
-#include "TableWidget.h"
-#include "EasyButton.h"
+#include "EasyChart.h"
+#include "EasyTab.h"
 
 class MainGUI : public QWidget
 {
     Q_OBJECT
 
 private:
-    QVBoxLayout* vBoxLayout;
-    QWidget* btWt;
-    QPushButton* bt_listWt;
-    QPushButton* bt_treeWt;
-    QPushButton* bt_tableWt;
-    QPushButton* bt_plotWt;
+    QPushButton* pBtn[5];
 
-    ListWidget* listWigt;
-    TreeWidget* treeWigt;
-    TableWidget* tableWigt;
 
 public:
     explicit MainGUI(QWidget *parent = 0);
 
-    void setInitParameters();
-    void setConstructIhm();
-    void setConnections();
 
 
 signals:
 
 public slots:
-    void testListWgt();
-    void testTreeWgt();
-    void testTableWgt();
-    void testPlotWgt();
-
+    void easyTabWgtExample();
+    void easyChartExample();
+    void easyNetwork();
 
 };
 

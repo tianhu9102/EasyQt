@@ -35,6 +35,7 @@ void EasyChart::setEasyInitParams(){
 
     QValueAxis *axisY = new QValueAxis;
     axisY->setLinePenColor(series->pen().color());
+    //series->setPen(QPen(Qt::red,2,Qt::SolidLine));//....
 
     easyChart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisX);
@@ -42,34 +43,35 @@ void EasyChart::setEasyInitParams(){
     //![3]
 
     //![4]
-    /*
-    series = new QSplineSeries;
+    /*series = new QSplineSeries;
     *series << QPointF(1, 0.5) << QPointF(1.5, 4.5) << QPointF(2.4, 2.5) << QPointF(4.3, 12.5)
             << QPointF(5.2, 3.5) << QPointF(7.4, 16.5) << QPointF(8.3, 7.5) << QPointF(10, 17);
-    easyChart->addSeries(series);
+    easyChart->addSeries(series);*/
 
 
     QCategoryAxis *axisY3 = new QCategoryAxis;
     axisY3->append("Low", 5);
     axisY3->append("Medium", 12);
     axisY3->append("High", 17);
-    axisY3->setLinePenColor(series->pen().color());
-    axisY3->setGridLinePen((series->pen()));
+    axisY3->setLinePenColor(Qt::red);
+    axisY3->setGridLinePen(QPen(Qt::red,2,Qt::SolidLine));
+    //axisY3->setPen(QPen(Qt::red,2,Qt::SolidLine));
 
     easyChart->addAxis(axisY3, Qt::AlignRight);
     series->attachAxis(axisX);
-    series->attachAxis(axisY3);*/
+    series->attachAxis(axisY3);
+
     //![4]
 
     //![5]
-    QChartView *chartView = new QChartView(easyChart);
+    chartView = new QChartView(easyChart);
     chartView->setRenderHint(QPainter::Antialiasing);
     //![5]
 
     //![6]
     QWidget *widget = new QWidget();
     //widget->setWindowFlags(Qt::CustomizeWindowHint);//
-    widget->setWindowFlags(Qt::WindowCloseButtonHint); //only close button
+    //widget->setWindowFlags(Qt::WindowCloseButtonHint); //only close button
 
 
     QHBoxLayout* layout = new QHBoxLayout(widget);
@@ -78,6 +80,18 @@ void EasyChart::setEasyInitParams(){
     widget->resize(600, 350);
     widget->show();
     //![6]
+    //!
+
+}
+void EasyChart::paintEvent(QPaintEvent*){
+    QPainter* paint=new QPainter;
+    paint->begin(chartView);
+    paint->setPen(QPen(Qt::blue,4,Qt::DashLine));//设置画笔形式
+    paint->setBrush(QBrush(Qt::red,Qt::SolidPattern));//设置画刷形式
+    paint->drawRect(5,4,3,15);
+    paint->end();
+
+    this->update();
 }
 
 void EasyChart::setEasyStyleSheet(){

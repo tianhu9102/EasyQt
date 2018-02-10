@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui websockets webchannel
 QT       += charts
 QT       += printsupport
 
@@ -30,7 +30,6 @@ INCLUDEPATH +=EasyElement \
 
 SOURCES += main.cpp \
             MainGUI.cpp \
-            MainWidget.cpp \
             EasyElement/ListWidget.cpp \
             EasyElement/TreeWidget.cpp \
             EasyElement/TableWidget.cpp \
@@ -38,14 +37,14 @@ SOURCES += main.cpp \
             EasyElement/EasyTable.cpp \
             EasyElement/EasyTab.cpp \
             EasyExample/qcustomplot.cpp \
-            EasyExample/fmgment.cpp \
     EasyExample/TestEasyExample.cpp \
     EasyFunction/EasyPC.cpp \
-    EasyElement/EasyChart.cpp
+    EasyElement/EasyChart.cpp \
+    EasyElement/EasyQHcommunicate.cpp \
+    RealTimeCurveQChartWidget.cpp
 
 HEADERS  += \
             MainGUI.h \
-            MainWidget.h \
             EasyElement/ListWidget.h \
             EasyElement/TreeWidget.h \
             EasyElement/TableWidget.h \
@@ -53,15 +52,13 @@ HEADERS  += \
             EasyElement/EasyTable.h \
             EasyElement/EasyTab.h \
             EasyExample/qcustomplot.h \
-            EasyExample/fmgment.h \
     EasyExample/TestEasyExample.h \
     EasyFunction/EasyPC.h \
-    EasyElement/EasyChart.h
+    EasyElement/EasyChart.h \
+    EasyElement/EasyQHcommunicate.h \
+    RealTimeCurveQChartWidget.h
 
 FORMS    += \
-        mainwidget.ui \
-        EasyExample/flowmanage.ui \
-        EasyExample/fmgment.ui \
         EasyExample/testcplot.ui
 
 RESOURCES += \

@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>EasyCommon/style/styleSheet.qss</file>
         <file>EasyCommon/icons/icon0/1.png</file>
         <file>EasyCommon/icons/icon0/2.png</file>
         <file>EasyCommon/icons/icon0/107-128.png</file>
@@ -134,5 +133,9 @@
         <file>EasyCommon/icons/icon0/vesselCenterline - 副本.png</file>
         <file>EasyCommon/icons/icon0/vesselCenterline.png</file>
         <file>EasyCommon/icons/icon0/volumedatasets.png</file>
+        <file>EasyCommon/style/easySheet1.qss</file>
+        <file>EasyCommon/icons/icon1/finger.png</file>
+        <file>EasyCommon/icons/icon1/finger2.png</file>
+        <file>EasyCommon/icons/icon1/finger3.png</file>
     </qresource>
 </RCC>

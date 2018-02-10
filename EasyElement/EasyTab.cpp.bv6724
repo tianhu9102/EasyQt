@@ -1,0 +1,23 @@
+#include "EasyTab.h"
+
+EasyTab::EasyTab(QWidget *parent) : QWidget(parent)
+{
+    easyTab = new QTabWidget();
+}
+
+void EasyTab::setEasyInitParams(){
+
+
+}
+void EasyTab::setEasyDatas(QStringList tabTittles){
+
+    QWidget* w0 = new QWidget();
+    easyTab->addTab(w0,"monkey");
+easyTab->show();
+    QHBoxLayout* layout = new QHBoxLayout();
+    layout->addWidget(easyTab);
+    this->setLayout(layout);
+
+    qDebug()<<"mmm";
+
+}

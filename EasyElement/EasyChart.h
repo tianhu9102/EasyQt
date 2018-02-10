@@ -24,8 +24,11 @@ public:
     void setEasyStyleSheet();
     void setEasyDatas();
 
+    void paintEvent(QPaintEvent*);
+
 private:
     QChart *easyChart;
+    QChartView *chartView;
 
 signals:
 

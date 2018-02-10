@@ -1,5 +1,7 @@
 #include "EasyTable.h"
 
+class EasyTable* easyTable;
+
 EasyTable::EasyTable(QWidget *parent) : QWidget(parent)
 {
     easyTable = new QTableWidget();
